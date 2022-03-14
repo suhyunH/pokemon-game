@@ -59,58 +59,53 @@ function animate(){
         playerImage.width/4,
         playerImage.height
         )
-    if(keys.down.pressed){
-        background.position.y = background.position.y-3
-    }else if(keys.up.pressed){
-        background.position.y = background.position.y+3
-    }else if(keys.right.pressed){
-        background.position.x = background.position.x-3
-    }else if(keys.left.pressed){
-        background.position.x = background.position.x+3
+    if(keys.down.pressed && lastKey===40){
+        background.position.y -= 3
+    }else if(keys.up.pressed && lastKey===38){
+        background.position.y += 3
+    }else if(keys.right.pressed && lastKey===39){
+        background.position.x -= 3
+    }else if(keys.left.pressed && lastKey===37){
+        background.position.x += 3
     }
 }
 animate()
-
+let lastKey = 0
 
 window.addEventListener('keydown',(e)=>{
     switch(e.keyCode){
         case 40 : 
             keys.down.pressed = true
-            console.log('down') 
+            lastKey=40
             break
         case 38 :
             keys.up.pressed=true
-            console.log('up') 
+            lastKey=38
             break
         case 39: 
             keys.right.pressed=true
-            console.log('right')
+            lastKey=39
             break
         case 37: 
             keys.left.pressed =true
-            console.log('left')
+            lastKey=37
             break
     }
-    console.log(keys);
 })
 
 window.addEventListener('keyup',(e)=>{
     switch(e.keyCode){
         case 40 : 
             keys.down.pressed = false
-            console.log('down') 
             break
         case 38 :
             keys.up.pressed= false
-            console.log('up') 
             break
         case 39: 
             keys.right.pressed= false
-            console.log('right')
             break
         case 37: 
             keys.left.pressed = false
-            console.log('left')
             break
     }
 })
