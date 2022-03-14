@@ -15,7 +15,17 @@ playerImage.src='./img/playerDown.png'
 
 image.onload = ()=>{
     context.drawImage(image,-500,-340)
-    context.drawImage(playerImage, canvas.width/2-playerImage.width/2, canvas.height/2-playerImage.height/2)
+    context.drawImage(
+        playerImage, 
+        0,
+        0,
+        playerImage.width/4,
+        playerImage.height,
+        canvas.width/2-playerImage.width/2+70, 
+        canvas.height/2-playerImage.height/2,
+        playerImage.width/4,
+        playerImage.height
+        )
 }
 
 
